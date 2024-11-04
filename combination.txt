@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+void printCombinationsToFile(int colors[], int positions, int current[], int index, int size, int *count, FILE *file)
+{
+    if (index == positions)
+    {
+        for (int i = 0; i < positions; i++)
+        {
+            fprintf(file, "%d ", current[i]);
+        }
+        fprintf(file, "\n");
+
+        (*count)++;
+        return;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        current[index] = colors[i];
+        printCombinationsToFile(colors, positions, current, index + 1, size, count, file);
+    }
+}
+
+int main()
+{
+    // int colors[] = {1, 2, 3, 4, 5, 6};
+    // int positions = 4;
+    // int current[4];
+    int colors[] = {1, 2, 3, 4, 5, 6, 7, 8};
+    int positions = 5;
+    int current[5];
+    int count = 0;
+
+    // เปิดไฟล์สำหรับเขียน
+    FILE *file = fopen("combinations2.txt", "w");
+
+    // ตรวจสอบว่าไฟล์ถูกเปิดหรือไม่
+    if (file == NULL)
+    {
+        return 1;
+    }
+
+    // เริ่มต้นการสร้าง Combinations
+    printCombinationsToFile(colors, positions, current, 0, sizeof(colors) / sizeof(colors[0]), &count, file);
+
+    // ปิดไฟล์
+    fclose(file);
+
+    // แสดงจำนวน Combinations
+    printf("Total Combinations: %d\n", count);
+
+    return 0;
+}
