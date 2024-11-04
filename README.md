@@ -14,9 +14,9 @@ The development team identified that this game can be adapted for programming by
 
 ## Project Objectives
 This project aims to develop the Mastermind game using three different programming approaches:
-1. **C Language using Genetic Algorithm** on [Replit](https://replit.com/).
+1. **C Language using Genetic Algorithm**.
 2. **Wolfram Language** using Genetic Algorithm in **Wolfram Mathematica**.
-3. **C Language using Brute Force Algorithm** on [Replit](https://replit.com/).
+3. **C Language using Brute Force Algorithm**.
 
 The performance of the two algorithms (Genetic and Brute Force) will be compared by calculating the average number of guesses required to crack the code over 3 game trials. The data will be presented in a table for analysis.
 
